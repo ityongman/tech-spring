@@ -13,7 +13,6 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Map;
 
 @Order(1)
 @Component
@@ -31,34 +30,27 @@ public class ControllerLog {
 
     @Around("restController() || controller()")
     public Object logAround(ProceedingJoinPoint joinPoint) throws Throwable{
-        long t = System.currentTimeMillis();
+        long startTime = System.currentTimeMillis();
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
         String url = request.getRequestURI();
         // 应该只打印header中的有用信息，当以后启用header传输参数时，再确定打印哪些
         StringBuilder logStr = new StringBuilder("request:");
         //1. 输出request Get请求参数 request.getParameterMap()
-        logStr.append(url).append(";args:").append(JSON.toJSONString(request.getParameterMap()));
-        log.info("Get request params : {}" , logStr.toString());
+        logStr.append(url).append(";get args:").append(JSON.toJSONString(request.getParameterMap()));
+        log.info("Request get params : {}" , logStr.toString());
 
         //2. POST请求参数
         Object[] objParams = joinPoint.getArgs() ;
         if(null != objParams) {
-            Map<String, String> postBodyParams = resolvePostBodyParam(objParams[0]);
+            log.info("Request post params : {} ", JSON.toJSONString(objParams[0])); // 打印第一个参数, JsonBody只要求有一个参数
         }
-        log.info("args --> ", objParams.toString());
+
         // 执行业务逻辑
         Object result = joinPoint.proceed();
         //响应结果
-        long endTime = System.currentTimeMillis();
-        long duration = (endTime - t);
-        log.info("response {}：{}, cost {}", url, JSON.toJSONString(result), duration);
+        log.info("response {}：{}, cost {}", url, JSON.toJSONString(result), (System.currentTimeMillis() - startTime));
 
         return result;
-    }
-
-
-    public Map<String, String> resolvePostBodyParam(Object obj) {
-        return  null ;
     }
 }
