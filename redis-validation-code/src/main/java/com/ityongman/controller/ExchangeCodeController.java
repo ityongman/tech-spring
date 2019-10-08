@@ -2,10 +2,10 @@ package com.ityongman.controller;
 
 import com.ityongman.common.CodeException;
 import com.ityongman.common.Result;
-import com.ityongman.entity.GenerateCodeDTO;
+import com.ityongman.entity.dto.GenerateCodeDTO;
+import com.ityongman.entity.vo.CodeRewardVO;
 import com.ityongman.service.ExchangeCodeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,8 +21,8 @@ public class ExchangeCodeController {
     @Autowired
     private ExchangeCodeService exchangeCodeService ;
 
-    @Autowired
-    private RedisTemplate redisTemplate ;
+//    @Autowired
+//    private RedisTemplate redisTemplate ;
 
     @RequestMapping(value = "generate", method = RequestMethod.POST)
     public Result<String> generateCode(@RequestBody GenerateCodeDTO code) {
@@ -36,6 +36,12 @@ public class ExchangeCodeController {
 
             return Result.failResult(-1, "System Erorr !!!");
         }
+    }
+
+    @RequestMapping(value = "validate", method = RequestMethod.GET)
+    public Result<CodeRewardVO> validate(Long userId, String code) {
+        // TODO
+        return null ;
     }
 
 }

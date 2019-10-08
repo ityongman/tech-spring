@@ -1,6 +1,8 @@
-package com.ityongman.entity;
+package com.ityongman.entity.dto;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -8,7 +10,8 @@ import javax.validation.constraints.NotNull;
 /**
  * 红包兑换码, 类似秒杀、抢红包功能
  */
-@Data
+@Setter
+@Getter
 public class GenerateCodeDTO {
     /**
      * 可供抢的商品总数量

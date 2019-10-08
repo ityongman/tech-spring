@@ -1,6 +1,6 @@
 package com.ityongman.service;
 
-import com.ityongman.entity.GenerateCodeDTO;
+import com.ityongman.entity.dto.GenerateCodeDTO;
 
 public interface ExchangeCodeService {
     /**
