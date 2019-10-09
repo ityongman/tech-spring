@@ -20,4 +20,7 @@
 #### 2.3 创建ConsumerListener监听器对象, 实现对业务处理逻辑
 #### 2.4 创建PubSubController对象用于发送生产者消息
 
-    NOTE: 具体实现逻辑, 可以根据上面的步骤查看对应的代码逻辑
+    NOTE: 
+    1. 具体实现逻辑, 可以根据上面的步骤查看对应的代码逻辑
+    2. spring-redis 使用RedisMessageListenerContainer进行消息监听, 客户程序需要自己实现MessageListener, 并以指定的topic
+    注册到RedisMessageListenerContainer, 如果指定Topic有消息, RedisMessageListenerContainer会通知该MessageListener

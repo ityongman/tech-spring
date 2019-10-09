@@ -12,14 +12,14 @@ public class PubSubController {
     @Autowired
     private StringRedisTemplate redisTemplate ;
 
-    @RequestMapping("publish")
+    @RequestMapping("publish") // get message
     public String publish(String message){
         redisTemplate.convertAndSend("string-topic", message);
 
         return "SUCCESS" ;
     }
 
-    @RequestMapping("publish2")
+    @RequestMapping("publish2") // can not get message
     public String publish2(String message){
         redisTemplate.convertAndSend("string-topic2", message);
 
