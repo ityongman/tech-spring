@@ -1,24 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="54988d35-8875-461c-9fd2-c2f4af14efd1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ityongman/design/singleton/hungry/HungryStaticSingleton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ityongman/design/singleton/lazy/LazyDoubleCheckSingleton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ityongman/design/singleton/lazy/LazyInnerClassSingleton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ityongman/design/singleton/lazy/LazySimpleSingleton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ityongman/design/singleton/lazy/LazySynchronizeSigleton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ityongman/design/singleton/register/ContainerSingleton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ityongman/design/singleton/register/EnumSingleton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ityongman/design/singleton/seriable/SeriableSingleton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/ityongman/design/singleton/lazy/EnumSingletonTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/ityongman/design/singleton/lazy/LazyCurrentThread.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/ityongman/design/singleton/lazy/LazySimpleSingletoneTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/ityongman/design/singleton/lazy/LzayInnerClassSingletonTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/ityongman/design/singleton/lazy/SeriableSingletonTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/singleton design pattern.md" beforeDir="false" afterPath="$PROJECT_DIR$/singleton design pattern.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ityongman/design/singleton/hungry/HungrySingleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ityongman/design/singleton/hungry/HungrySingleton.java" afterDir="false" />
-    </list>
+    <list default="true" id="54988d35-8875-461c-9fd2-c2f4af14efd1" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -267,6 +250,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="GO_FMT" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -364,16 +348,23 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1571571089492</updated>
-      <workItem from="1571571096124" duration="15415000" />
+      <workItem from="1571571096124" duration="15693000" />
     </task>
+    <task id="LOCAL-00001" summary="增加饿汉式、懒汉式单例创建模式, 包括&#10;1. 直接创建、static创建、doublecheck、静态内部类、枚举、容器map方式&#10;2. 包括破坏单例的方式, 反射、字节IO反编译">
+      <created>1571703111545</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1571703111545</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15415000" />
+    <option name="totallyTimeSpent" value="15693000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="716" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Image Layers" />
       <window_info id="Designer" />
@@ -439,6 +430,10 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="增加饿汉式、懒汉式单例创建模式, 包括&#10;1. 直接创建、static创建、doublecheck、静态内部类、枚举、容器map方式&#10;2. 包括破坏单例的方式, 反射、字节IO反编译" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加饿汉式、懒汉式单例创建模式, 包括&#10;1. 直接创建、static创建、doublecheck、静态内部类、枚举、容器map方式&#10;2. 包括破坏单例的方式, 反射、字节IO反编译" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
