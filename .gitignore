@@ -5,3 +5,4 @@
 /redis-pub-sub/.mvn
 /jdk-multi-thread/.idea
 /jdk-multi-thread/jdk-multi-thread.iml
+/jdk-multi-thread/target
