@@ -19,6 +19,8 @@
      2.2.2 定义注解和切面信息, 对需要统计数据的接口添加自定义注解; 缺点: 实现比较复杂
      2.2.3 定义需要 @Around 注解修饰的方法, 并在方法中处理对应的逻辑
      2.2.4 声明Controller接口, 实现实际业务需求
+#### 2.3 HyperLogLog常用命令
+    pfadd、pfcount、pfmerge
 
 NOTE: 可以添加定时任务, 用于处理数据同步到数据库中
-http://www.west999.com/info/html/chengxusheji/Javajishu/20190827/4658073.html
+https://zhuanlan.zhihu.com/p/58358264
