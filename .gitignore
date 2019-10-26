@@ -6,3 +6,9 @@
 /jdk-multi-thread/.idea
 /jdk-multi-thread/jdk-multi-thread.iml
 /jdk-multi-thread/target
+/design-pattern-proxy/.idea
+/design-pattern-proxy/target
+/design-pattern-proxy/design-pattern-proxy.iml
+/design-pattern-singletone/.idea
+/design-pattern-singletone/target
+/design-pattern-singletone/design-pattern-singletone.iml
