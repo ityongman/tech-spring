@@ -1,48 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="60c3dd06-94cd-4366-b104-a23a58b1daba" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cglib_proxy/$java/lang/Object$$FastClassByCGLIB$$3f697993.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cglib_proxy/com/ityongman/service/impl/OrderService$$EnhancerByCGLIB$$ba0750bd$$FastClassByCGLIB$$ba96fd48.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cglib_proxy/com/ityongman/service/impl/OrderService$$EnhancerByCGLIB$$ba0750bd.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cglib_proxy/com/ityongman/service/impl/OrderService$$FastClassByCGLIB$$955381.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cglib_proxy/net/sf/cglib/core/MethodWrapper$MethodWrapperKey$$KeyFactoryByCGLIB$$d45e49f7.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cglib_proxy/net/sf/cglib/proxy/Enhancer$EnhancerKey$$KeyFactoryByCGLIB$$7fb24d72.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/design-pattern-proxy.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/META-INF/design-pattern-proxy.kotlin_module" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/ityongman/dao/OrderDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/ityongman/dynamicproxy/cglib/OrderServiceCglibProxy.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/ityongman/dynamicproxy/jdk/OrderServiceDynamicProxy.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/ityongman/entity/DbDatasource.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/ityongman/entity/Order.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/ityongman/service/IOrderService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/ityongman/service/impl/OrderService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/ityongman/staticproxy/OrderServiceStaticProxy.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/com/ityongman/dynamicproxy/OrderServiceDynamicProxyTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/com/ityongman/dynamicproxy/cglib/OrderServiceCglibProxyTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/com/ityongman/staticproxy/OrderServiceStaticProxyTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../design-pattern-singletone/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/classes/com/ityongman/design/singleton/hungry/HungrySingleton.class" beforeDir="false" afterPath="$PROJECT_DIR$/../design-pattern-singletone/target/classes/com/ityongman/design/singleton/hungry/HungrySingleton.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/classes/com/ityongman/design/singleton/hungry/HungryStaticSingleton.class" beforeDir="false" afterPath="$PROJECT_DIR$/../design-pattern-singletone/target/classes/com/ityongman/design/singleton/hungry/HungryStaticSingleton.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/classes/com/ityongman/design/singleton/lazy/LazyDoubleCheckSingleton.class" beforeDir="false" afterPath="$PROJECT_DIR$/../design-pattern-singletone/target/classes/com/ityongman/design/singleton/lazy/LazyDoubleCheckSingleton.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/classes/com/ityongman/design/singleton/lazy/LazyInnerClassSingleton$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../design-pattern-singletone/target/classes/com/ityongman/design/singleton/lazy/LazyInnerClassSingleton$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/classes/com/ityongman/design/singleton/lazy/LazyInnerClassSingleton$InnerCreateSingleton.class" beforeDir="false" afterPath="$PROJECT_DIR$/../design-pattern-singletone/target/classes/com/ityongman/design/singleton/lazy/LazyInnerClassSingleton$InnerCreateSingleton.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/classes/com/ityongman/design/singleton/lazy/LazyInnerClassSingleton.class" beforeDir="false" afterPath="$PROJECT_DIR$/../design-pattern-singletone/target/classes/com/ityongman/design/singleton/lazy/LazyInnerClassSingleton.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/classes/com/ityongman/design/singleton/lazy/LazySimpleSingleton.class" beforeDir="false" afterPath="$PROJECT_DIR$/../design-pattern-singletone/target/classes/com/ityongman/design/singleton/lazy/LazySimpleSingleton.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/classes/com/ityongman/design/singleton/lazy/LazySynchronizeSigleton.class" beforeDir="false" afterPath="$PROJECT_DIR$/../design-pattern-singletone/target/classes/com/ityongman/design/singleton/lazy/LazySynchronizeSigleton.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/classes/com/ityongman/design/singleton/register/EnumSingleton.class" beforeDir="false" afterPath="$PROJECT_DIR$/../design-pattern-singletone/target/classes/com/ityongman/design/singleton/register/EnumSingleton.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/classes/com/ityongman/design/singleton/seriable/SeriableSingleton.class" beforeDir="false" afterPath="$PROJECT_DIR$/../design-pattern-singletone/target/classes/com/ityongman/design/singleton/seriable/SeriableSingleton.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/test-classes/com/ityongman/design/singleton/lazy/EnumSingletonTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../design-pattern-singletone/target/test-classes/com/ityongman/design/singleton/lazy/EnumSingletonTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/test-classes/com/ityongman/design/singleton/lazy/LazyCurrentThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/../design-pattern-singletone/target/test-classes/com/ityongman/design/singleton/lazy/LazyCurrentThread.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/test-classes/com/ityongman/design/singleton/lazy/LazySimpleSingletoneTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../design-pattern-singletone/target/test-classes/com/ityongman/design/singleton/lazy/LazySimpleSingletoneTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/test-classes/com/ityongman/design/singleton/lazy/LzayInnerClassSingletonTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../design-pattern-singletone/target/test-classes/com/ityongman/design/singleton/lazy/LzayInnerClassSingletonTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/test-classes/com/ityongman/design/singleton/lazy/SeriableSingletonTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../design-pattern-singletone/target/test-classes/com/ityongman/design/singleton/lazy/SeriableSingletonTest.class" afterDir="false" />
-    </list>
+    <list default="true" id="60c3dd06-94cd-4366-b104-a23a58b1daba" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -372,7 +331,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1572058185719</updated>
-      <workItem from="1572058189757" duration="13717000" />
+      <workItem from="1572058189757" duration="13996000" />
     </task>
     <task id="LOCAL-00001" summary="1. 更新 单例模式代码&#10;2. 新增代理模式代码">
       <created>1572094454511</created>
@@ -385,10 +344,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13717000" />
+    <option name="totallyTimeSpent" value="13996000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Image Layers" />
       <window_info id="Designer" />
