@@ -24,3 +24,5 @@
     1. 具体实现逻辑, 可以根据上面的步骤查看对应的代码逻辑
     2. spring-redis 使用RedisMessageListenerContainer进行消息监听, 客户程序需要自己实现MessageListener, 并以指定的topic
     注册到RedisMessageListenerContainer, 如果指定Topic有消息, RedisMessageListenerContainer会通知该MessageListener
+
+优秀博文: https://juejin.im/post/5cc9d2d2e51d453ae54a2040
