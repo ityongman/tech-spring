@@ -32,11 +32,96 @@
 
 #### 2.1 类结构图
 
+![](/Users/shedunze/workspace/sourceWorkspace/tech-spring/delegate-strategy-design-pattern/Boss.png)
+
 ####2.2 实践用例
 
-- Boss创建
+- 创建Boss
 
+```java
+public class Boss {
+    public void doWork(Leader leader, String cmd){
+        leader.doWork(cmd);
+    }
+}
 ```
 
+- 创建IWorker
+
+```java
+public interface IWorker {
+    void doWork(String cmd);
+}
 ```
 
+- 创建Leader
+
+  和代理模式中代理角色有些像, 注意区别, 代理模式注重过程, 委派模式注重结果
+
+```java
+public class Leader implements IWorker {
+
+    private Map<String, IWorker> workers = new HashMap<>();
+
+    public Leader() {
+        workers.put("java", new WorkerA());
+        workers.put("php", new WorkerB());
+        workers.put("go", new WorkerC());
+    }
+
+    public void doWork(String cmd) {
+        IWorker worker = workers.get(cmd);
+        worker.doWork(cmd);
+    }
+}
+```
+
+- 创建WorkerA 
+
+```java
+public class WorkerA implements IWorker {
+    @Override
+    public void doWork(String cmd) {
+        System.out.println("WorkerA do work " + cmd);
+    }
+}
+```
+
+- 创建WorkerB
+
+```java
+public class WorkerB implements IWorker {
+    @Override
+    public void doWork(String cmd) {
+        System.out.println("WorkerA do work " + cmd);
+    }
+}
+```
+
+- 创建WorkerC
+
+```java
+public class WorkerC implements IWorker {
+    @Override
+    public void doWork(String cmd) {
+        System.out.println("WorkerA do work " + cmd);
+    }
+}
+```
+
+- 创建测试类
+
+```java
+public class DelegateWorkerTest {
+    public static void main(String[] args) {
+        Boss boss = new Boss();
+        Leader leader = new Leader();
+
+        boss.doWork(leader, "java");
+    }
+}
+```
+
+##### 2.3 DispatcherServlet简单实现
+
+​	具体逻辑代码可以参考git地址

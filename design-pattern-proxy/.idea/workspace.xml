@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="60c3dd06-94cd-4366-b104-a23a58b1daba" name="Default Changelist" comment="" />
+    <list default="true" id="60c3dd06-94cd-4366-b104-a23a58b1daba" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../delegate-strategy-design-pattern/src/main/java/com/ityongman/delegate/httpReq/DispatcherServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../delegate-strategy-design-pattern/src/main/java/com/ityongman/delegate/httpReq/ctl/ItemController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../delegate-strategy-design-pattern/src/main/java/com/ityongman/delegate/httpReq/ctl/TradeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../delegate-strategy-design-pattern/src/main/java/com/ityongman/delegate/httpReq/ctl/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../delegate-strategy-design-pattern/src/main/java/com/ityongman/delegate/simple/Boss.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../delegate-strategy-design-pattern/src/main/java/com/ityongman/delegate/simple/DelegateWorkerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../delegate-strategy-design-pattern/src/main/java/com/ityongman/delegate/simple/IWorker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../delegate-strategy-design-pattern/src/main/java/com/ityongman/delegate/simple/Leader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../delegate-strategy-design-pattern/src/main/java/com/ityongman/delegate/simple/WorkerA.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../delegate-strategy-design-pattern/src/main/java/com/ityongman/delegate/simple/WorkerB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../delegate-strategy-design-pattern/src/main/java/com/ityongman/delegate/simple/WorkerC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../delegate-strategy-design-pattern/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../delegate-strategy-design-pattern/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../delegate-strategy-design-pattern/src/main/java/com/ityongman/delegate/Boss.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../study-note/delegate and strategy design pattern.md" beforeDir="false" afterPath="$PROJECT_DIR$/../study-note/delegate and strategy design pattern.md" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -331,7 +347,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1572058185719</updated>
-      <workItem from="1572058189757" duration="13996000" />
+      <workItem from="1572058189757" duration="14039000" />
     </task>
     <task id="LOCAL-00001" summary="1. 更新 单例模式代码&#10;2. 新增代理模式代码">
       <created>1572094454511</created>
@@ -344,11 +360,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13996000" />
+    <option name="totallyTimeSpent" value="14039000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Image Layers" />
       <window_info id="Designer" />
