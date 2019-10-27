@@ -6,7 +6,10 @@ import com.ityongman.delegate.httpReq.ctl.UserController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class DispatcherServlet {
@@ -39,4 +42,20 @@ public class DispatcherServlet {
         }
         return ret;
     }
+
+    // 也可以通过下面的方式模拟DipatcherServlet功能
+    //1. 保存所有请求controller信息
+    List<CtlHolder> holders = new ArrayList<>();
+
+    //3. 复写servlet init方法 模拟服务启动加载controller信息到List
+    public void init() {
+        //TODO
+    }
+    //Getter Setter
+    private class CtlHolder {
+        private Object controller ;
+        private Method method ;
+        private String uri ;
+    }
+
 }
