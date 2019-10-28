@@ -539,7 +539,7 @@ public class ContainerSingletonTest {
 
 ### 六、ThreadLocal(伪线程安全)
 
-####6.1 核心 
+#### 6.1 核心 
 
 - 在线程内是线程安全的 
 - 在线程之间是线程不安全的
