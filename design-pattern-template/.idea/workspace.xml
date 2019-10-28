@@ -1,15 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7e648a81-2f1d-48a6-bd86-ccc17e312c4d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ityongman/RowMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ityongman/dao/JdbcTemplate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ityongman/dao/impl/OrderDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ityongman/entity/Order.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/ityongman/TemplateJdbcTest.java" afterDir="false" />
+    <list default="true" id="7e648a81-2f1d-48a6-bd86-ccc17e312c4d" name="Default Changelist" comment="Merge branch 'master' of https://github.com/ityongman/tech-spring">
+      <change beforePath="$PROJECT_DIR$/../delegate-strategy-design-pattern/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../delegate-strategy-design-pattern/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../design-pattern-adapter/design-pattern-adapter.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../design-pattern-adapter/design-pattern-adapter.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/singleton design pattern.md" beforeDir="false" afterPath="$PROJECT_DIR$/../design-pattern-singletone/singleton design pattern.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/classes/META-INF/design-pattern-singletone.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/classes/com/ityongman/current/ConcurrentExecutor$RunHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/classes/com/ityongman/current/ConcurrentExecutor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/classes/com/ityongman/design/singleton/hungry/HungrySingleton.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/classes/com/ityongman/design/singleton/hungry/HungryStaticSingleton.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/classes/com/ityongman/design/singleton/lazy/LazyDoubleCheckSingleton.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/classes/com/ityongman/design/singleton/lazy/LazyInnerClassSingleton$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/classes/com/ityongman/design/singleton/lazy/LazyInnerClassSingleton$InnerCreateSingleton.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/classes/com/ityongman/design/singleton/lazy/LazyInnerClassSingleton.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/classes/com/ityongman/design/singleton/lazy/LazySimpleSingleton.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/classes/com/ityongman/design/singleton/lazy/LazySynchronizeSigleton.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/classes/com/ityongman/design/singleton/register/ContainerSingleton.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/classes/com/ityongman/design/singleton/register/EnumSingleton.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/classes/com/ityongman/design/singleton/seriable/SeriableSingleton.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/classes/com/ityongman/entity/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/classes/com/ityongman/threadlocal/ThreadLocalSingleton$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/classes/com/ityongman/threadlocal/ThreadLocalSingleton.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/test-classes/com/ityongman/design/singleton/lazy/ContainerSingletonTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/test-classes/com/ityongman/design/singleton/lazy/EnumSingletonTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/test-classes/com/ityongman/design/singleton/lazy/LazyCurrentThread.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/test-classes/com/ityongman/design/singleton/lazy/LazySimpleSingletoneTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/test-classes/com/ityongman/design/singleton/lazy/LzayInnerClassSingletonTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/test-classes/com/ityongman/design/singleton/lazy/SeriableSingletonTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/test-classes/com/ityongman/design/singleton/lazy/ThreadLocalSingletonTest.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../study-note/delegate and strategy design pattern.md" beforeDir="false" afterPath="$PROJECT_DIR$/../study-note/delegate and strategy design pattern.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -150,58 +174,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="design-pattern-template" type="b2602c69:ProjectViewProjectNode" />
-              <item name="design-pattern-template" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="design-pattern-template" type="b2602c69:ProjectViewProjectNode" />
-              <item name="design-pattern-template" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="design-pattern-template" type="b2602c69:ProjectViewProjectNode" />
-              <item name="design-pattern-template" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="design-pattern-template" type="b2602c69:ProjectViewProjectNode" />
-              <item name="design-pattern-template" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="design-pattern-template" type="b2602c69:ProjectViewProjectNode" />
-              <item name="design-pattern-template" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="design-pattern-template" type="b2602c69:ProjectViewProjectNode" />
-              <item name="design-pattern-template" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="ityongman" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="design-pattern-template" type="b2602c69:ProjectViewProjectNode" />
-              <item name="design-pattern-template" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="ProjectPane" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -238,12 +211,20 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1572183741141</updated>
-      <workItem from="1572183745018" duration="3848000" />
+      <workItem from="1572183745018" duration="4098000" />
     </task>
+    <task id="LOCAL-00001" summary="增加模版设计模式实践代码">
+      <created>1572275379252</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1572275379252</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3848000" />
+    <option name="totallyTimeSpent" value="4098000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="6" />
@@ -280,6 +261,10 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="增加模版设计模式实践代码" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加模版设计模式实践代码" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/pom.xml">

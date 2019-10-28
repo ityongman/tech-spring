@@ -226,7 +226,7 @@ public class LazySynchronizeSigleton {
       //1.
       private LazyDoubleCheckSingleton(){}
   
-      //2. volatile 保持变量的可见性
+      //2. volatile 保持变量的可见性、原子性
       private volatile static LazyDoubleCheckSingleton singleton = null ;
   
       //3.
@@ -380,7 +380,8 @@ public class SeriableSingletonTest {
 
     }
 }
-
+// readResolve存在 且是 singleton, true
+// readResolve不存在 或 返回不是 singleton, false
 ```
 
 #### 4.3 解决字节流破坏单例
@@ -538,7 +539,7 @@ public class ContainerSingletonTest {
 
 ### 六、ThreadLocal(伪线程安全)
 
-####6.1 核心 
+#### 6.1 核心 
 
 - 在线程内是线程安全的 
 - 在线程之间是线程不安全的
