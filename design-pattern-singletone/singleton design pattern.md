@@ -226,7 +226,7 @@ public class LazySynchronizeSigleton {
       //1.
       private LazyDoubleCheckSingleton(){}
   
-      //2. volatile 保持变量的可见性
+      //2. volatile 保持变量的可见性、原子性
       private volatile static LazyDoubleCheckSingleton singleton = null ;
   
       //3.
