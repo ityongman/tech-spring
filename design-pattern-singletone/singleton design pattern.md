@@ -380,7 +380,8 @@ public class SeriableSingletonTest {
 
     }
 }
-
+// readResolve存在 且是 singleton, true
+// readResolve不存在 或 返回不是 singleton, false
 ```
 
 #### 4.3 解决字节流破坏单例
