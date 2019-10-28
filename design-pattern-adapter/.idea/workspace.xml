@@ -2,49 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cd012069-1e37-41bb-9904-d49c68bf4d89" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ityongman/common/ResultMsg.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ityongman/service/ISigninService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ityongman/service/adapter/IRegisterAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ityongman/service/adapter/IThirdSigninService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ityongman/service/adapter/impl/QQRegister.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ityongman/service/adapter/impl/ThirdSigninService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ityongman/service/adapter/impl/WeChatRegister.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ityongman/service/impl/SigninService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/ityongman/ThirdSigninRegisterTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../delegate-strategy-design-pattern/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../delegate-strategy-design-pattern/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/design-pattern-adapter.iml" beforeDir="false" afterPath="$PROJECT_DIR$/design-pattern-adapter.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/singleton design pattern.md" beforeDir="false" afterPath="$PROJECT_DIR$/../design-pattern-singletone/singleton design pattern.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/classes/META-INF/design-pattern-singletone.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/classes/com/ityongman/current/ConcurrentExecutor$RunHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/classes/com/ityongman/current/ConcurrentExecutor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/classes/com/ityongman/design/singleton/hungry/HungrySingleton.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/classes/com/ityongman/design/singleton/hungry/HungryStaticSingleton.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/classes/com/ityongman/design/singleton/lazy/LazyDoubleCheckSingleton.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/classes/com/ityongman/design/singleton/lazy/LazyInnerClassSingleton$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/classes/com/ityongman/design/singleton/lazy/LazyInnerClassSingleton$InnerCreateSingleton.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/classes/com/ityongman/design/singleton/lazy/LazyInnerClassSingleton.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/classes/com/ityongman/design/singleton/lazy/LazySimpleSingleton.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/classes/com/ityongman/design/singleton/lazy/LazySynchronizeSigleton.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/classes/com/ityongman/design/singleton/register/ContainerSingleton.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/classes/com/ityongman/design/singleton/register/EnumSingleton.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/classes/com/ityongman/design/singleton/seriable/SeriableSingleton.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/classes/com/ityongman/entity/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/classes/com/ityongman/threadlocal/ThreadLocalSingleton$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/classes/com/ityongman/threadlocal/ThreadLocalSingleton.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/test-classes/com/ityongman/design/singleton/lazy/ContainerSingletonTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/test-classes/com/ityongman/design/singleton/lazy/EnumSingletonTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/test-classes/com/ityongman/design/singleton/lazy/LazyCurrentThread.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/test-classes/com/ityongman/design/singleton/lazy/LazySimpleSingletoneTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/test-classes/com/ityongman/design/singleton/lazy/LzayInnerClassSingletonTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/test-classes/com/ityongman/design/singleton/lazy/SeriableSingletonTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../design-pattern-singletone/target/test-classes/com/ityongman/design/singleton/lazy/ThreadLocalSingletonTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../design-pattern-template/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../design-pattern-template/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../study-note/delegate and strategy design pattern.md" beforeDir="false" afterPath="$PROJECT_DIR$/../study-note/delegate and strategy design pattern.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ityongman/service/adapter/impl/ThirdSigninService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ityongman/service/adapter/impl/ThirdSigninService.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -64,7 +22,7 @@
         <entry file="file://$PROJECT_DIR$/src/test/java/com/ityongman/ThirdSigninRegisterTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="168">
-              <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
+              <caret line="7" column="56" selection-start-line="7" selection-start-column="56" selection-end-line="7" selection-end-column="56" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -75,8 +33,91 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/ityongman/service/adapter/IThirdSigninService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+            <state relative-caret-position="312">
+              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="uml://JAVA/com.ityongman.service.ISigninService">
+          <provider selected="true" editor-type-id="UmlEditorProvider">
+            <state>
+              <ID>JAVA</ID>
+              <OriginalElement>com.ityongman.service.ISigninService</OriginalElement>
+              <nodes>
+                <node x="193.7629629629629" y="0.0">com.ityongman.service.adapter.IRegisterAdapter</node>
+                <node x="233.99999999999997" y="128.0">com.ityongman.service.adapter.impl.QQRegister</node>
+                <node x="487.58333333333326" y="139.0">com.ityongman.service.impl.SigninService</node>
+                <node x="211.0" y="256.0">com.ityongman.service.adapter.impl.ThirdSigninService</node>
+                <node x="487.58333333333326" y="11.0">com.ityongman.service.ISigninService</node>
+                <node x="760.5833333333333" y="128.0">com.ityongman.service.adapter.IThirdSigninService</node>
+                <node x="0.0" y="128.0">com.ityongman.service.adapter.impl.WeChatRegister</node>
+                <node x="291.5" y="406.0">com.ityongman.ThirdSigninRegisterTest</node>
+              </nodes>
+              <notes />
+              <edges>
+                <edge source="com.ityongman.service.adapter.impl.ThirdSigninService" target="com.ityongman.service.adapter.IThirdSigninService">
+                  <point x="193.20000000000005" y="-50.0" />
+                  <point x="645.7" y="231.0" />
+                  <point x="897.5833333333333" y="231.0" />
+                  <point x="0.0" y="39.0" />
+                </edge>
+                <edge source="com.ityongman.service.adapter.impl.QQRegister" target="com.ityongman.service.adapter.IRegisterAdapter">
+                  <point x="0.0" y="-39.0" />
+                  <point x="338.0" y="103.0" />
+                  <point x="312.7629629629629" y="103.0" />
+                  <point x="0.0" y="39.0" />
+                </edge>
+                <edge source="com.ityongman.service.adapter.impl.ThirdSigninService" target="com.ityongman.service.adapter.impl.WeChatRegister">
+                  <point x="-193.20000000000005" y="-50.0" />
+                  <point x="259.29999999999995" y="231.0" />
+                  <point x="107.0" y="231.0" />
+                  <point x="0.0" y="39.0" />
+                </edge>
+                <edge source="com.ityongman.service.impl.SigninService" target="com.ityongman.service.ISigninService">
+                  <point x="0.0" y="-28.0" />
+                  <point x="0.0" y="28.0" />
+                </edge>
+                <edge source="com.ityongman.service.adapter.impl.ThirdSigninService" target="com.ityongman.service.adapter.IRegisterAdapter">
+                  <point x="0.0" y="-50.0" />
+                  <point x="452.5" y="103.0" />
+                  <point x="392.09629629629626" y="103.0" />
+                  <point x="79.33333333333337" y="39.0" />
+                </edge>
+                <edge source="com.ityongman.service.adapter.impl.WeChatRegister" target="com.ityongman.service.adapter.IRegisterAdapter">
+                  <point x="0.0" y="-39.0" />
+                  <point x="107.0" y="103.0" />
+                  <point x="233.42962962962952" y="103.0" />
+                  <point x="-79.33333333333337" y="39.0" />
+                </edge>
+                <edge source="com.ityongman.ThirdSigninRegisterTest" target="com.ityongman.service.adapter.impl.ThirdSigninService">
+                  <point x="-80.5" y="-28.0" />
+                  <point x="372.0" y="381.0" />
+                  <point x="331.75" y="381.0" />
+                  <point x="-120.75" y="50.0" />
+                </edge>
+                <edge source="com.ityongman.service.adapter.impl.ThirdSigninService" target="com.ityongman.service.adapter.impl.QQRegister">
+                  <point x="-96.60000000000002" y="-50.0" />
+                  <point x="355.9" y="231.0" />
+                  <point x="338.0" y="231.0" />
+                  <point x="0.0" y="39.0" />
+                </edge>
+                <edge source="com.ityongman.service.adapter.impl.ThirdSigninService" target="com.ityongman.service.impl.SigninService">
+                  <point x="96.60000000000002" y="-50.0" />
+                  <point x="549.1" y="231.0" />
+                  <point x="614.0833333333333" y="231.0" />
+                  <point x="0.0" y="28.0" />
+                </edge>
+              </edges>
+              <settings layout="Hierarchic Group" zoom="1.0" x="56.0" y="57.0" />
+              <SelectedNodes />
+              <Categories>
+                <Category>Constructors</Category>
+                <Category>Methods</Category>
+              </Categories>
+              <SCOPE>All</SCOPE>
+              <VISIBILITY>private</VISIBILITY>
             </state>
           </provider>
         </entry>
@@ -104,7 +145,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/ityongman/service/adapter/impl/WeChatRegister.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="264">
@@ -118,13 +159,17 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/ityongman/service/adapter/impl/ThirdSigninService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="7" column="7" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
+            <state relative-caret-position="192">
+              <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#391#392#0" expanded="true" />
+                <element signature="e#451#452#0" expanded="true" />
+                <element signature="e#503#504#0" expanded="true" />
+                <element signature="e#567#568#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -172,10 +217,10 @@
         <option value="$PROJECT_DIR$/src/main/java/com/ityongman/service/adapter/impl/QQRegister.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ityongman/service/adapter/IRegisterAdapter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ityongman/service/adapter/impl/WeChatRegister.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ityongman/service/adapter/impl/ThirdSigninService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ityongman/common/ResultMsg.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ityongman/service/adapter/IThirdSigninService.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/ityongman/ThirdSigninRegisterTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ityongman/service/adapter/impl/ThirdSigninService.java" />
       </list>
     </option>
   </component>
@@ -248,16 +293,6 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="ityongman" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="design-pattern-adapter" type="b2602c69:ProjectViewProjectNode" />
-              <item name="design-pattern-adapter" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="ityongman" type="462c0819:PsiDirectoryNode" />
               <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -287,7 +322,42 @@
               <item name="design-pattern-adapter" type="b2602c69:ProjectViewProjectNode" />
               <item name="design-pattern-adapter" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="ityongman" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="impl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="design-pattern-adapter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="design-pattern-adapter" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="design-pattern-adapter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="design-pattern-adapter" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="design-pattern-adapter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="design-pattern-adapter" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="design-pattern-adapter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="design-pattern-adapter" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="ityongman" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -297,6 +367,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
@@ -346,12 +417,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1572275318872</updated>
-      <workItem from="1572275325769" duration="2748000" />
+      <workItem from="1572275325769" duration="3407000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2748000" />
+    <option name="totallyTimeSpent" value="3407000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -362,7 +433,7 @@
       <window_info id="UI Designer" />
       <window_info id="Capture Tool" />
       <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26332796" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.26332796" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Messages" weight="0.32876712" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
@@ -416,16 +487,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ityongman/service/adapter/impl/ThirdSigninService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="7" column="7" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ityongman/service/impl/SigninService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -440,23 +501,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/ityongman/ThirdSigninRegisterTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ityongman/service/adapter/IThirdSigninService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -487,6 +531,118 @@
             <element signature="imports" expanded="true" />
             <element signature="e#237#238#0" expanded="true" />
             <element signature="e#289#290#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ityongman/service/adapter/IThirdSigninService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/com.ityongman.service.ISigninService">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>com.ityongman.service.ISigninService</OriginalElement>
+          <nodes>
+            <node x="193.7629629629629" y="0.0">com.ityongman.service.adapter.IRegisterAdapter</node>
+            <node x="233.99999999999997" y="128.0">com.ityongman.service.adapter.impl.QQRegister</node>
+            <node x="487.58333333333326" y="139.0">com.ityongman.service.impl.SigninService</node>
+            <node x="211.0" y="256.0">com.ityongman.service.adapter.impl.ThirdSigninService</node>
+            <node x="487.58333333333326" y="11.0">com.ityongman.service.ISigninService</node>
+            <node x="760.5833333333333" y="128.0">com.ityongman.service.adapter.IThirdSigninService</node>
+            <node x="0.0" y="128.0">com.ityongman.service.adapter.impl.WeChatRegister</node>
+            <node x="291.5" y="406.0">com.ityongman.ThirdSigninRegisterTest</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="com.ityongman.service.adapter.impl.ThirdSigninService" target="com.ityongman.service.adapter.IThirdSigninService">
+              <point x="193.20000000000005" y="-50.0" />
+              <point x="645.7" y="231.0" />
+              <point x="897.5833333333333" y="231.0" />
+              <point x="0.0" y="39.0" />
+            </edge>
+            <edge source="com.ityongman.service.adapter.impl.QQRegister" target="com.ityongman.service.adapter.IRegisterAdapter">
+              <point x="0.0" y="-39.0" />
+              <point x="338.0" y="103.0" />
+              <point x="312.7629629629629" y="103.0" />
+              <point x="0.0" y="39.0" />
+            </edge>
+            <edge source="com.ityongman.service.adapter.impl.ThirdSigninService" target="com.ityongman.service.adapter.impl.WeChatRegister">
+              <point x="-193.20000000000005" y="-50.0" />
+              <point x="259.29999999999995" y="231.0" />
+              <point x="107.0" y="231.0" />
+              <point x="0.0" y="39.0" />
+            </edge>
+            <edge source="com.ityongman.service.impl.SigninService" target="com.ityongman.service.ISigninService">
+              <point x="0.0" y="-28.0" />
+              <point x="0.0" y="28.0" />
+            </edge>
+            <edge source="com.ityongman.service.adapter.impl.ThirdSigninService" target="com.ityongman.service.adapter.IRegisterAdapter">
+              <point x="0.0" y="-50.0" />
+              <point x="452.5" y="103.0" />
+              <point x="392.09629629629626" y="103.0" />
+              <point x="79.33333333333337" y="39.0" />
+            </edge>
+            <edge source="com.ityongman.service.adapter.impl.WeChatRegister" target="com.ityongman.service.adapter.IRegisterAdapter">
+              <point x="0.0" y="-39.0" />
+              <point x="107.0" y="103.0" />
+              <point x="233.42962962962952" y="103.0" />
+              <point x="-79.33333333333337" y="39.0" />
+            </edge>
+            <edge source="com.ityongman.ThirdSigninRegisterTest" target="com.ityongman.service.adapter.impl.ThirdSigninService">
+              <point x="-80.5" y="-28.0" />
+              <point x="372.0" y="381.0" />
+              <point x="331.75" y="381.0" />
+              <point x="-120.75" y="50.0" />
+            </edge>
+            <edge source="com.ityongman.service.adapter.impl.ThirdSigninService" target="com.ityongman.service.adapter.impl.QQRegister">
+              <point x="-96.60000000000002" y="-50.0" />
+              <point x="355.9" y="231.0" />
+              <point x="338.0" y="231.0" />
+              <point x="0.0" y="39.0" />
+            </edge>
+            <edge source="com.ityongman.service.adapter.impl.ThirdSigninService" target="com.ityongman.service.impl.SigninService">
+              <point x="96.60000000000002" y="-50.0" />
+              <point x="549.1" y="231.0" />
+              <point x="614.0833333333333" y="231.0" />
+              <point x="0.0" y="28.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.0" x="56.0" y="57.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Constructors</Category>
+            <Category>Methods</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/ityongman/ThirdSigninRegisterTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="7" column="56" selection-start-line="7" selection-start-column="56" selection-end-line="7" selection-end-column="56" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ityongman/service/adapter/impl/ThirdSigninService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#391#392#0" expanded="true" />
+            <element signature="e#451#452#0" expanded="true" />
+            <element signature="e#503#504#0" expanded="true" />
+            <element signature="e#567#568#0" expanded="true" />
           </folding>
         </state>
       </provider>

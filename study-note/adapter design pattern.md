@@ -30,6 +30,10 @@
 
 ​	这里以传统注册式登陆, 增加了QQ、Wechart、Sina三方登陆方式为例说明适配器(Adapter)使用方式
 
+#### 2.0 用例类结构图
+
+![](/Users/shedunze/workspace/sourceWorkspace/tech-spring/design-pattern-adapter/ISigninService.png)
+
 #### 2.1传统登陆服务
 
 ```java
@@ -47,9 +51,7 @@ public interface ISigninService {
 }
 ```
 
-
-
-#### 2.2 新增第三方登陆适配器类(Adapter)
+#### 2.2 第三方登陆适配器类(Adapter)
 
 ```java
 /**
@@ -108,6 +110,9 @@ public interface IThirdSigninService {
 
 }
 
+/**
+ * 结合了策略模式、工厂模式、适配器模式
+ */
 public class ThirdSigninService extends SigninService implements IThirdSigninService {
     public ResultMsg registerByQQ(String id) {
         return processRegister(id, QQRegister.class);

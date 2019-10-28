@@ -5,6 +5,9 @@ import com.ityongman.service.adapter.IRegisterAdapter;
 import com.ityongman.service.adapter.IThirdSigninService;
 import com.ityongman.service.impl.SigninService;
 
+/**
+ * 结合了策略模式、工厂模式、适配器模式
+ */
 public class ThirdSigninService extends SigninService implements IThirdSigninService {
     public ResultMsg registerByQQ(String id) {
         return processRegister(id, QQRegister.class);
