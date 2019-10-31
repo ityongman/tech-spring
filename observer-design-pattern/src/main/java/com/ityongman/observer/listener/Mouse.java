@@ -1,6 +1,6 @@
-package com.ityongman.listener;
+package com.ityongman.observer.listener;
 
-import com.ityongman.constant.EventType;
+import com.ityongman.observer.constant.EventType;
 
 public class Mouse extends EventListener{
     public void click() {

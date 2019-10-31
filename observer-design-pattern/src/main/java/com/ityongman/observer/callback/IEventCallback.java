@@ -1,6 +1,6 @@
-package com.ityongman.callback;
+package com.ityongman.observer.callback;
 
-import com.ityongman.event.Event;
+import com.ityongman.observer.event.Event;
 
 public interface IEventCallback {
     /**

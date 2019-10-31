@@ -1,4 +1,4 @@
-package com.ityongman.event;
+package com.ityongman.observer.event;
 
 import java.lang.reflect.Method;
 

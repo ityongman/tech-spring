@@ -1,8 +1,8 @@
 package com.ityongman;
 
-import com.ityongman.callback.EventCallback;
-import com.ityongman.constant.EventType;
-import com.ityongman.listener.Mouse;
+import com.ityongman.observer.callback.EventCallback;
+import com.ityongman.observer.constant.EventType;
+import com.ityongman.observer.listener.Mouse;
 
 public class EventTest {
     public static void main(String[] args) {

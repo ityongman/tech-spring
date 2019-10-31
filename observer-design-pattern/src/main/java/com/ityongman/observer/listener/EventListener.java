@@ -1,6 +1,6 @@
-package com.ityongman.listener;
+package com.ityongman.observer.listener;
 
-import com.ityongman.event.Event;
+import com.ityongman.observer.event.Event;
 
 import java.lang.reflect.Method;
 import java.util.HashMap;

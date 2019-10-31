@@ -1,4 +1,4 @@
-package com.ityongman.constant;
+package com.ityongman.observer.constant;
 
 /**
  * 事件类型
