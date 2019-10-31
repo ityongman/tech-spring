@@ -211,7 +211,7 @@ public class DispatcherServlet {
 
 #### 3.1 类结构图
 
-![](/Users/shedunze/workspace/sourceWorkspace/tech-spring/delegate-strategy-design-pattern/PromotionStrategy.png)
+![](../delegate-strategy-design-pattern/PromotionStrategy.png)
 
 #### 3.2 实践用例
 

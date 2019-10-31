@@ -19,3 +19,6 @@
 /redis-pub-sub/redis-pub-sub.iml
 /spring-aop-print-log/spring-aop-print-log.iml
 /redis-validation-code/redis-validation-code.iml
+/decorator-design-pattern/.idea
+/decorator-design-pattern/target
+/decorator-design-pattern/decorator-design-pattern.iml

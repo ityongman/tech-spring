@@ -4,7 +4,7 @@ import com.ityongman.config.ResultMsg;
 import com.ityongman.service.common.ISinginService;
 import com.ityongman.service.third.ISinginServiceDecorator;
 
-public class SinginServiceDecorator implements ISinginServiceDecorator {
+public class SinginServiceDecorator implements ISinginServiceDecorator , ISinginService{
     private ISinginService singinService ;
 
     public SinginServiceDecorator(ISinginService singinService) {

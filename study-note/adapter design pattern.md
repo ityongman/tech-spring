@@ -32,7 +32,7 @@
 
 #### 2.0 用例类结构图
 
-![](/Users/shedunze/workspace/sourceWorkspace/tech-spring/design-pattern-adapter/ISigninService.png)
+![](../design-pattern-adapter/ISigninService.png)
 
 #### 2.1传统登陆服务
 
@@ -159,4 +159,3 @@ public class ThirdSigninRegisterTest {
     }
 }
 ```
-

@@ -40,7 +40,7 @@
 
 #### 2.2 类结构图
 
-![](/Users/shedunze/workspace/sourceWorkspace/tech-spring/design-pattern-proxy/OrderServiceStaticProxy.png)
+![](../design-pattern-proxy/OrderServiceStaticProxy.png)
 
 #### 2.3 实践用例
 
