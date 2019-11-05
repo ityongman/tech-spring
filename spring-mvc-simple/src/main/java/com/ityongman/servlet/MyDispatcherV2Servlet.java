@@ -214,13 +214,15 @@ public class MyDispatcherV2Servlet extends HttpServlet {
                 sbUrl.append(requestMapping.value()) ;
             }
 
+            StringBuilder innerSb ;
             Method[] methods = clazz.getMethods();
             for(Method method : methods){
                 if(!method.isAnnotationPresent(MyRequestMapping.class)) {return ;}
 
+                innerSb = new StringBuilder(sbUrl);
                 MyRequestMapping requestMapping = method.getAnnotation(MyRequestMapping.class);
-                sbUrl.append(requestMapping.value());
-                String url = sbUrl.toString().replaceAll("/+", "/");
+                innerSb.append(requestMapping.value());
+                String url = innerSb.toString().replaceAll("/+", "/");
                 Pattern pattern = Pattern.compile(url);
                 handlerMapping.add(new HandlerMapping(entry.getValue(), method, pattern));
             }
