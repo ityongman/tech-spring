@@ -48,6 +48,8 @@
 
   D:\libs\workspace\openworkspace\spring-framework-5.0.2.RELEASE
 
+![](.\spring source code compile\spring source code compile 02-2.png)
+
 - 执行命令 gradlew.bat, 出现下面的结果表示成功
 
 ![](.\spring source code compile\spring source code compile 02.png)
@@ -88,6 +90,3 @@ repositories {
 
 ![](.\spring source code compile\spring source code compile 05.png)
 
-
-
-<font color="#ff00">**NOTE: 如果需要将工程导入eclipse, 编译之后在根目录执行脚本 import-into-eclipse.bat , 等待构建成功即可。**</font>
