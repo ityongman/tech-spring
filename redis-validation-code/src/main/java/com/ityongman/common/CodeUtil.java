@@ -95,4 +95,38 @@ public class CodeUtil {
         return str;
     }
 
+    /**
+     * 解析生成码, 得到ret
+     *
+     * @param code
+     *            生成码
+     * @return ret
+     */
+    /**
+     *      long id = UniqueCodeUtils.parseCode(code);
+     * 		int codeTypeValue = (int) (id >> CODE_BITS);
+     * 		long codeValue = id & ((1L << CODE_BITS) - 1);
+     */
+    public static long parseCode(String code) {
+        char chs[] = code.toCharArray();
+        long ret = 0L;
+        for (int i = 0; i < chs.length; i++) {
+            int ind = 0;
+            for (int j = 0; j < RADIX; j++) {
+                if (chs[i] == RADIX_CHAR_ARRAY_LOWERCASE[j]) {
+                    ind = j;
+                    break;
+                }
+            }
+            if (chs[i] == DIVISION) {
+                break;
+            }
+            if (i > 0) {
+                ret = ret * RADIX + ind;
+            } else {
+                ret = ind;
+            }
+        }
+        return ret;
+    }
 }
