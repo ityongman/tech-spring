@@ -1,9 +1,6 @@
 package com.ityongman.servlet;
 
-import com.ityongman.annotation.MyAutowired;
-import com.ityongman.annotation.MyController;
-import com.ityongman.annotation.MyRequestMapping;
-import com.ityongman.annotation.MyService;
+import com.ityongman.annotation.*;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -13,14 +10,16 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.net.URL;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-public class MyDispatcherServlet extends HttpServlet {
+public class MyDispatcherV2Servlet extends HttpServlet {
     // 存储配置文件信息
     private Properties configFile = new Properties();
 
@@ -31,7 +30,7 @@ public class MyDispatcherServlet extends HttpServlet {
     private Map<String, Object> beanMap = new ConcurrentHashMap<>();
 
     //url <-> method
-    private Map<String, Method> handlerMapping = new HashMap<>();
+    private List<HandlerMapping> handlerMapping = new ArrayList<>();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -72,7 +71,6 @@ public class MyDispatcherServlet extends HttpServlet {
          * 3. 初始化所有扫描类的实例
          */
         initInstance();
-
         /**
          * 4. 完成类实例相关属性的依赖注入
          */
@@ -185,12 +183,12 @@ public class MyDispatcherServlet extends HttpServlet {
 
                 MyAutowired myAutowired = field.getAnnotation(MyAutowired.class);
                 String beanName = myAutowired.value();
-                if("".equals(beanName)){ // 未添加value属性值
+                // 未添加value属性值
+                if("".equals(beanName)){
                     beanName = field.getType().getName();
                 }
 
                 field.setAccessible(true);
-
                 try {
                     field.set(entry.getValue(), beanMap.get(beanName));
                 } catch (IllegalAccessException e) {
@@ -216,20 +214,67 @@ public class MyDispatcherServlet extends HttpServlet {
                 sbUrl.append(requestMapping.value()) ;
             }
 
+            StringBuilder innerSb ;
             Method[] methods = clazz.getMethods();
             for(Method method : methods){
                 if(!method.isAnnotationPresent(MyRequestMapping.class)) {return ;}
 
+                innerSb = new StringBuilder(sbUrl);
                 MyRequestMapping requestMapping = method.getAnnotation(MyRequestMapping.class);
-                sbUrl.append(requestMapping.value());
-                String url = sbUrl.toString().replaceAll("/+", "/");
-                handlerMapping.put(url, method);
+                innerSb.append(requestMapping.value());
+                String url = innerSb.toString().replaceAll("/+", "/");
+                Pattern pattern = Pattern.compile(url);
+                handlerMapping.add(new HandlerMapping(entry.getValue(), method, pattern));
             }
         }
 
     }
 
     private void doDispatcher(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+        //1. 从HandlerMapping 中查询有无 handler 处理器
+        HandlerMapping handler = getHandler(req, resp);
+        if (handler == null) {
+            resp.getWriter().write("404 Not Found !!!");
+            return ;
+        }
+        //2. 获取匹配方法的参数列表
+        Class<?>[] parameterTypes = handler.method.getParameterTypes();
+        Object[] parameterValues = new Object[parameterTypes.length];
+        //3. 获取请求的参数列表
+        Map<String/*paramName*/, String[]/*paramValue*/> reqParams = req.getParameterMap();
+        //4. 解析请求参数
+        //TODO 这里有一个问题, 请求参数 >= 方法参数, 并且包含所有方法参数也是可以调用成功的, 不是绝对匹配
+        for (Map.Entry<String, String[]> entry : reqParams.entrySet()) {
+            // 参数值
+            String value = Arrays.toString(entry.getValue()).replaceAll("\\[|\\]", "").replaceAll("\\s", ",");
+            //
+            if(!handler.paramsMappingIndex.containsKey(entry.getKey())) {continue;}
+            Integer index = handler.paramsMappingIndex.get(entry.getKey());
+            parameterValues[index] = convert(parameterTypes[index], value);
+        }
+        //5. 处理HttpServletRequest 、 HttpServletResponse
+        Integer reqIndex = handler.paramsMappingIndex.get(HttpServletRequest.class.getName());
+        parameterValues[reqIndex] = req ;
+        Integer respIndex = handler.paramsMappingIndex.get(HttpServletResponse.class.getName());
+        parameterValues[respIndex] = resp ;
+
+        handler.method.invoke(handler.ctrInstance, parameterValues);
+    }
+
+    private Object convert(Class<?> parameterType, String value) {
+        if (Integer.class == parameterType) {
+            return Integer.valueOf(value);
+        }
+        if (Double.class == parameterType) {
+            return Double.valueOf(value);
+        }
+        return value ;
+    }
+
+    private HandlerMapping getHandler(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        if (handlerMapping.isEmpty()){
+            return null ;
+        }
         //1. 返回站点根目录
         String contextPath = req.getContextPath();
         //2. 返回路径信息
@@ -237,21 +282,14 @@ public class MyDispatcherServlet extends HttpServlet {
         //3. 处理掉根目录信息 和  多"/"信息
         uri = uri.replaceAll(contextPath, "").replaceAll("/+", "/");
         //4.1 如果映射关系中没有url, 返回
-        if (!handlerMapping.containsKey(uri)) {
-            resp.getWriter().write("404 Not Found !!!");
-            return ;
+        for(HandlerMapping hm : handlerMapping) {
+            Matcher matcher = hm.pattern.matcher(uri);
+            if (!matcher.matches()) {continue;}
+
+            return hm ;
         }
-        //4.2 如果有映射关系进行匹配处理
-        Method method = this.handlerMapping.get(uri); // 找到 uri 对应的 method方法
-        //5. 获取形参的参数列表
-        Class<?>[] parameterTypes = method.getParameterTypes();
-        //6. 请求传入的参数列表
-        Map<String, String[]> parameterMap = req.getParameterMap();
-        //7. 简化处理, 获取类instance信息
-        String beanName = toFirstChar2Lower(method.getDeclaringClass().getSimpleName());
-        //8. 反射调用
-        method.invoke(beanMap.get(beanName), new Object[]{req, resp, parameterMap.get("tid")[0]});
-        // TODO 请求参数、方法参数匹配过程, 请参考 MyDispacherV2Servlet
+
+        return null;
     }
 
     private String toFirstChar2Lower(String beanName) {
@@ -259,5 +297,51 @@ public class MyDispatcherServlet extends HttpServlet {
         chars[0] += 32 ;
 
         return String.valueOf(chars);
+    }
+
+
+    private class HandlerMapping {
+        // ctl 对应的实例对象
+        protected  Object ctrInstance ;
+        // method 方法
+        protected Method method ;
+        //解析pattern, uri 映射关系, 请求的时候通过这个pattern进行匹配
+        protected Pattern pattern;
+        //参数顺序
+        protected Map<String, Integer> paramsMappingIndex ;
+
+        public HandlerMapping(Object ctrInstance, Method method, Pattern pattern) {
+            this.ctrInstance = ctrInstance ;
+            this.method = method ;
+            this.pattern = pattern ;
+
+            paramsMappingIndex = new ConcurrentHashMap<>();
+            parseParamsMappingIndex(method);
+        }
+
+        private void parseParamsMappingIndex(Method method) {
+            //1. 处理HttpServletRequest、HttpServletResponse
+            Class<?>[] parameterTypes = method.getParameterTypes();
+            for (int i = 0 , len = parameterTypes.length ; i < len ; i++) {
+                Class<?> parameterType = parameterTypes[i];
+                if(parameterType == HttpServletRequest.class
+                        || parameterType == HttpServletResponse.class) {
+                    paramsMappingIndex.put(parameterType.getName(), i);
+                }
+            }
+
+            //2. 处理带有注解 @MyRequestParam 的参数
+            Annotation[][] parameterAnnotations = method.getParameterAnnotations();
+            for(int i = 0 , len = parameterAnnotations.length ; i < len ; i++) {
+                for(Annotation annotation : parameterAnnotations[i]) {
+                    if(annotation instanceof MyRequestParam) {
+                        String paramName = ((MyRequestParam) annotation).value();
+                        if (!"".equals(paramName.trim())) {
+                            paramsMappingIndex.put(paramName, i);
+                        }
+                    }
+                }
+            }
+        }
     }
 }

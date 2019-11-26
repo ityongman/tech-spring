@@ -7,7 +7,7 @@
 
   <servlet>
     <servlet-name>mymvc</servlet-name>
-    <servlet-class>com.ityongman.servlet.MyDispatcherServlet</servlet-class>
+    <servlet-class>com.ityongman.servlet.MyDispatcherV2Servlet</servlet-class>
     <init-param>
       <param-name>contextConfigLocation</param-name>
       <param-value>application.properties</param-value>

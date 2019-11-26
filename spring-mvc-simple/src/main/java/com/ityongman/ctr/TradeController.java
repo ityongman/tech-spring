@@ -27,4 +27,16 @@ public class TradeController {
             e.printStackTrace();
         }
     }
+
+    @MyRequestMapping("/add")
+    public void add(HttpServletRequest req, HttpServletResponse resp, @MyRequestParam("a") Integer a , @MyRequestParam("b") Integer b) {
+        Integer result = a + b ;
+        try {
+           // resp.getWriter().write(result.intValue()); //Writes a single character
+            resp.getWriter().write(a + "+" +b + "=" + result); //Writes a string
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
