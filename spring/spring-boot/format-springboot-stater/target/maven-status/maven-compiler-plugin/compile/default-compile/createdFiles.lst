@@ -1,0 +1,7 @@
+com/ityongman/starter/format/FastjsonAddressProcessor.class
+com/ityongman/starter/configuration/FormatConfiguration.class
+com/ityongman/starter/configuration/SerialiConfigurazed.class
+com/ityongman/starter/configuration/AddressProperties.class
+com/ityongman/starter/format/AddressProcessor.class
+com/ityongman/starter/format/BaseAddressProcessor.class
+com/AddressFormat.class

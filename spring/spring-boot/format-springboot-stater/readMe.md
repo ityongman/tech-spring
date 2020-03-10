@@ -1,0 +1,1 @@
+当前工程的客户端测试在 springboot-starter-client 工程中
