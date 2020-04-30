@@ -17,6 +17,10 @@ public class RpcRequest implements Serializable {
      */
     private String methodName ;
     /**
+     * 参数类型
+     */
+    private Class<?>[] paramTypes ;
+    /**
      * 处理方法的参数
      */
     private Object[] args ;
@@ -39,6 +43,14 @@ public class RpcRequest implements Serializable {
 
     public void setMethodName(String methodName) {
         this.methodName = methodName;
+    }
+
+    public Class<?>[] getParamTypes() {
+        return paramTypes;
+    }
+
+    public void setParamTypes(Class<?>[] paramTypes) {
+        this.paramTypes = paramTypes;
     }
 
     public Object[] getArgs() {

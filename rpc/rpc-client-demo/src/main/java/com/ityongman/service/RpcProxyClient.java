@@ -1,5 +1,8 @@
 package com.ityongman.service;
 
+import com.ityongman.discovery.IZkDiscovery;
+import com.ityongman.discovery.ZkDiscoveryCurator;
+
 import java.lang.reflect.Proxy;
 
 /**
@@ -17,5 +20,13 @@ public class RpcProxyClient {
         return (T) Proxy.newProxyInstance(interfaceClass.getClassLoader(),
                 new Class[]{interfaceClass},
                 new RemoteProxyHandler(host,port));
+    }
+
+    private IZkDiscovery zkDiscovery = new ZkDiscoveryCurator();
+
+    public <T> T clientProxy(Class interfaceClass, String version) {
+        return (T) Proxy.newProxyInstance(interfaceClass.getClassLoader(),
+                new Class[]{interfaceClass},
+                new RemoteProxyHandler(zkDiscovery, version));
     }
 }

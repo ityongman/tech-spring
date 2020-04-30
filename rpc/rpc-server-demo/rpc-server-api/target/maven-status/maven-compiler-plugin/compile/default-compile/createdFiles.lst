@@ -1,1 +1,3 @@
 com/ityongman/App.class
+com/ityongman/service/RpcRequest.class
+com/ityongman/service/IHelloService.class

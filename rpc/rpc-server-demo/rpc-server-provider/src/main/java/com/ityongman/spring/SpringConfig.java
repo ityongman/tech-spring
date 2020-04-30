@@ -15,6 +15,6 @@ public class SpringConfig {
 
     @Bean("rpcServer")
     public RpcServer getRpcserver() {
-        return new RpcServer(8080);
+        return new RpcServer(8088);
     }
 }

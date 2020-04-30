@@ -1,4 +1,4 @@
-package com.ityongman.spring;
+package com.ityongman.spring.handler;
 
 import com.ityongman.service.RpcRequest;
 import org.springframework.util.StringUtils;
@@ -14,7 +14,7 @@ import java.util.Map;
 /**
  * @Author shedunze
  * @Date 2020-02-02 16:21
- * @Description
+ * @Description 方法1, 配合阻塞式 服务处理的handler
  */
 public class SpringProcessorHandler implements Runnable {
     private Socket socket ;
