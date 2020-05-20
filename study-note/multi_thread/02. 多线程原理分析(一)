@@ -1,0 +1,412 @@
+# 多线程原理分析(一)
+
+## 一、包含的知识点
+
+- 多线程带来的问题(好处、坏处)
+- synchronized加锁方式
+- 锁信息是如何存储的(Header、Mark Word)
+- synchronized锁升级流程(偏向锁、轻量级锁、重量级锁)
+
+
+
+## 二、多线程带来的问题
+
+### 2.1 多线程带来的好处、坏处
+
+- 能够充分利用多核CPU, 实现线程并行执行
+- 多线程对于共享变量访问带来安全性问题
+
+
+
+### 2.2 线程安全问题的本质
+
+​		线程安全性本质,是对于数据状态的访问, 这个状态通常是共享的、可变的, 而问题的本质是对共享变量的访问
+
+- 共享的, 指数据变量可以被多个线程访问
+- 可变的, 指数据变量在生命周期内是可改变的
+
+
+
+### 2.3 解决线程安全问题方式
+
+- synchronized
+
+
+
+## 三、Synchronized基本认识
+
+### 3.1 synchronized 加锁方式
+
+- **<font color="#3a9">修饰实例方法</font>**, 对当前实例加锁，进入同步代码前要获得当前**<font color="#f0f">实例的锁</font>**
+- **<font color="#3a9">修饰代码块</font>**, 对当前类对象加锁，进入同步代码前要获得当前**<font color="#f0f">类对象的锁</font>**
+- **<font color="#3a9">修饰类方法</font>**, 指定加锁对象，对给定对象加锁，进入同步代码库前要获得**<font color="#f0f">给定对象的锁</font>**
+
+
+
+这里以代码块加锁进行举例
+
+```java
+public class SynchronizedThread {
+    private static int count = 0 ;
+
+    public static void main(String[] args) throws InterruptedException {
+        for (int i = 0 ; i < 2000; i++) {
+            new Thread(() -> incr()).start();
+        }
+
+        Thread.sleep(3000);
+        System.out.println("result -> " + count);
+    }
+
+    public static void incr() {
+        synchronized (SynchronizedThread.class) {
+            try {
+                Thread.sleep(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            count++ ;
+        }
+    }
+}
+```
+
+
+
+### 3.2 锁是如何存储的
+
+#### 3.2.1 锁包含的数据内容
+
+​		这里以 **synchronized(lock)** 为例来说明
+
+​		同步代码块以lock的生命周期来控制锁的粒度, 对象在内存中的布局主要包含三部分: **<font color="#f11">对象头(Header)、实例数据(InstanceData)、对其填充(Padding)</font>**
+
+​		下面是数据结构关系图, 锁的信息就维护在对象头(Header)中
+
+![](./锁对象包含的数据信息.jpg)
+
+
+
+#### 3.2.2 JVM创建对象实现
+
+​		创建Java对象时, JVM使用 InstanceOopDesc和arrayOopDesc 来描述对象头, 下面是InstanceOop.hpp文件的内容
+
+```hpp
+#ifndef SHARE_VM_OOPS_INSTANCEOOP_HPP
+#define SHARE_VM_OOPS_INSTANCEOOP_HPP
+
+#include "oops/oop.hpp"
+
+// An instanceOop is an instance of a Java Class
+// Evaluating "new HashTable()" will create an instanceOop.
+
+class instanceOopDesc : public oopDesc {
+ public:
+  // aligned header size.
+  static int header_size() { return sizeof(instanceOopDesc)/HeapWordSize; }
+
+  // If compressed, the offset of the fields of the instance may not be aligned.
+  static int base_offset_in_bytes() {
+    // offset computation code breaks if UseCompressedClassPointers
+    // only is true
+    return (UseCompressedOops && UseCompressedClassPointers) ?
+             klass_gap_offset_in_bytes() :
+             sizeof(instanceOopDesc);
+  }
+
+  static bool contains_field_offset(int offset, int nonstatic_field_size) {
+    int base_in_bytes = base_offset_in_bytes();
+    return (offset >= base_in_bytes &&
+            (offset-base_in_bytes) < nonstatic_field_size * heapOopSize);
+  }
+};
+
+#endif // SHARE_VM_OOPS_INSTANCEOOP_HPP
+```
+
+​		文中没有我们想了解的\_mark、\_medaData信息, 而InstanceOopDesc 继承了oopDesc , 查看oop.hpp文件内容, 包含下面的内容
+
+```hpp
+class oopDesc {
+ private:
+  volatile markOop  _mark; //对象标记信息
+  union _metadata {
+    Klass*      _klass;
+    narrowKlass _compressed_klass;
+  } _metadata; //类元信息
+}
+```
+
+​		对象标记信息类型属于markOop, 查看markOop.hpp文件, 包含下面的内容
+
+```hpp
+//  32 bits:
+//  --------
+//             hash:25 ------------>| age:4    biased_lock:1 lock:2 (normal object)
+//             JavaThread*:23 epoch:2 age:4    biased_lock:1 lock:2 (biased object)
+//             size:32 ------------------------------------------>| (CMS free block)
+//             PromotedObject*:29 ---------->| promo_bits:3 ----->| (CMS promoted object)
+
+enum { age_bits                 	= 4, // 分代年龄
+         lock_bits                = 2, // 锁标志 0-false, 1-true
+         biased_lock_bits         = 1, // 是否是偏向锁标志
+      	 //hashcode
+         max_hash_bits            = BitsPerWord - age_bits - lock_bits - biased_lock_bits,
+         hash_bits                = max_hash_bits > 31 ? 31 : max_hash_bits,
+         cms_bits                 = LP64_ONLY(1) NOT_LP64(0),
+         epoch_bits               = 2  //偏向锁时间戳
+  };
+```
+
+​		markOpp存储的数据会随着锁标志位的变化而变化, 包含的数据对象存在下面的情况
+
+<table>
+		<tr bgcolor="#808080">
+			<th rowspan="2">锁状态</th>
+			<th colspan="2">25bit</th>
+			<th rowspan="2">4bit</th>
+			<th>1bit</th>
+			<th>2bit</th>
+		</tr>
+		<tr>
+			<th bgcolor="#808080">23bit</th>
+			<th bgcolor="#808080">2bit</th>
+			<th bgcolor="#808080">是否偏向锁</th>
+			<th bgcolor="#808080">锁标志位</th>
+		</tr>
+		<tr bgcolor="#55eaff">
+			<th>无锁</th>
+			<th colspan="2">对象的hashcode</th>
+			<th>分代年龄</th>
+			<th>0</th>
+			<th>01</th>
+		</tr>
+		<tr>
+			<th>偏向锁</th>
+			<th>线程ID</th>
+			<th>Epoch</th>
+			<th>分代年龄</th>
+			<th>1</th>
+			<th>01</th>
+		</tr>
+		<tr bgcolor="#55eaff">
+			<th>轻量级锁</th>
+			<th colspan="4">指向栈中锁记录的指针</th>
+			<th>00</th>
+		</tr>
+		<tr>
+			<th>重量级锁</th>
+			<th colspan="4">指向互斥量（重量级锁）的指针</th>
+			<th>10</th>
+		</tr>
+		<tr bgcolor="#55eaff">
+			<th>GC标志</th>
+			<th colspan="4">空</th>
+			<th>11</th>
+		</tr>
+</table>
+
+
+
+#### 3.2.3 为什么任何对象都可以实现锁
+
+- Java中每个对象都隐式的继承Object, 而Object对象在JVM中都有一个native对象oop/oopDesc与之对应
+
+- 线程获取锁, 实际获取的是监视器对象(monitor), 多线程访问同步代码, 相当于争抢监视器对象, 修改对象锁标志
+
+  
+
+  而Java对象天生带有monitor对象，下面是markOop.hpp文件monitor
+
+  ```hpp
+    ObjectMonitor* monitor() const {
+      assert(has_monitor(), "check");
+      // Use xor instead of &~ to provide one extra tag-bit check.
+      return (ObjectMonitor*) (value() ^ monitor_value);
+    }
+  ```
+
+
+
+### 3.3 synchronized锁升级
+
+​		在分析锁如何存储一节中, markOop对锁进行了分类, 按照锁的状态分为: **<font color="#ffa353">无锁、偏向锁、轻量级锁、重量级锁</font>**
+
+​		在无锁的情况下, 对共享变量访问性能比较高, 但是高并发情况下存在安全问题 ; 加锁情况下, 可以保证共享变量安全问题,  但是性能比较低, 为了在数据访问安全性和数据访问性能之间有个折中, 提出了偏向锁、轻量级锁的概念(JDK6提供)
+
+
+
+#### 3.3.1 偏向锁原理
+
+​		当一个线程访问加了同步锁的代码块时, 会在对象头(Header)记录下这个线程Id(ThreadId), 后续线程进入代码时, 会比较线程ID是否相同, 如果相同, 说明是同一线程, 进入或者退出代码块时不用再次获取/释放锁
+
+​		偏向, 表示偏向当前线程, 不用再次获取线程锁。
+
+
+
+#### 3.3.2 偏向锁获取/释放逻辑
+
+​		在进行偏向锁获取/释放逻辑讲解前, 请先看下下面流程图, 我们将以下面的流程图来进行讲解
+
+![](./偏向锁.png)
+
+
+
+​	**<font color="#ff0033">偏向锁获取流程</font>**
+
+- 首相获取锁对象的Mark Word, 判断是否处于可偏向状态(biased_lock=1, 且ThreadId为空)
+- 如果是可偏向状态, 通过CAS方式将ThreadId写如锁对象头(Header)中
+  - 如果CAS成功, 表示成功获取了锁对象的偏向所, 接着执行同步代码块
+  - 如果CAS失败, 表示有其它线程获取了锁对象的偏向锁, 说明存在锁冲突现象, 需要撤销偏向锁, 将锁升级为轻量级锁(这个操作需要等到全局安全点)
+- 如果是已偏向状态, 需要检测Mark Word中存储的线程id(ThreadId)是否和当前ThreadId一致
+  - 如果相同, 不需要再次获取锁, 可以进入同步代码块进行逻辑操作
+  - 如果不相同, 说明存在其它线程获取了偏向锁, 需要撤销偏向锁, 进行锁升级到轻量级锁
+
+
+
+​	**<font color="#ff0033">偏向锁释放流程</font>**
+
+​		因为锁只能单向升级, 不能降级, 这里偏向锁的释放不是将对象恢复为无锁状态, 而是CAS失败时, 将锁升级为轻量级锁, 对原持有偏向锁的线程进行撤销时, 存在下面的情况
+
+- 原持有偏向锁的线程离开了临界区, 这个时候会将对象头(Header) 设置为无锁状态，其它线程可以通过CAS进行锁的获取
+- 原持有偏向锁的线程还在临界区内, 即代码块还没有执行完, 会将原持有偏向锁的线程升级为轻量级锁继续执行代码块
+
+
+
+#### 3.3.3 轻量级锁获取/释放逻辑
+
+​			在进行轻量级锁获取/释放逻辑讲解前, 请先看下下面流程图, 我们将以下面的流程图来进行讲解
+
+![](./轻量级锁.png)
+
+​	
+
+**<font color="#ff0033">轻量级锁获取流程</font>**		
+
+​		轻量级锁获取是通过自旋锁方式实现的。**<font color="#ff0033">自旋</font>** , 是指当其它线程进行锁竞争时,  这个线程不会立即进入阻塞状态, 而是原地循环等待, 在原持有锁的线程释放锁之后，这个线程会立即获取锁。
+
+​		自旋的过程会消耗CPU, 自旋需要考虑下面情况
+
+1) 轻量级锁适合同步代码块处理时间很短的场景
+
+2) 需要控制自旋次数, 避免自旋时间过长, JDK6引入了自适应自旋锁概念, 它会根据前一次自旋时间来决定本次是否需要自旋, 避免资源浪费
+
+​		升级流程如下:
+
+1) 线程在自己的**栈针**中创建锁记录对象(LockRecord)
+
+2) 将锁对象头中MarkWord记录，复制到创建的LockRecord中
+
+3) 将锁对象的Owner指针指向锁对象
+
+4) 将锁对象的对象头Mark Word 替换为指向锁记录的指针
+
+
+
+**<font color="#ff0033">轻量级锁释放流程</font>**		
+
+​		轻量级锁释放逻辑是获取锁的逆逻辑, 通过CAS操作把线程栈中的Lock Record替换到Mark Word中, 如果替换成功，表示没有竞争, 如果失败表示存在竞争, 需要对锁进行升级操作, 将锁升级为重量级锁 。
+
+
+
+#### 3.3.4 重量级锁获取/释放逻辑
+
+​		进行重量级锁讲解前, 请先看下下面代码及其执行情况(javap -v SynchronizedMonitor)
+
+```java
+public class SynchronizedMonitor {
+
+    public static void main(String[] args) {
+        synchronized (SynchronizedMonitor.class) {
+
+        }
+        test() ;
+    }
+
+    public static void test() {
+        System.out.println("Good");
+    }
+}
+```
+
+```java
+ public static void main(java.lang.String[]);
+    descriptor: ([Ljava/lang/String;)V
+    flags: (0x0009) ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=2, locals=3, args_size=1
+         0: ldc           #2                  // class com/ityongman/thread/SynchronizedThread
+         2: dup
+         3: astore_1
+         4: monitorenter
+         5: aload_1
+         6: monitorexit
+         7: goto          15
+        10: astore_2
+        11: aload_1
+        12: monitorexit
+        13: aload_2
+        14: athrow
+        15: invokestatic  #3                  // Method test:()V
+        18: return
+```
+
+
+
+​		从字节码可以看出, 线程进入/退出同步代码块是通过  monitorenter/monitorexit 控制, 线程想要执行被synchronized修饰的同步方法或者同步代码块, 必须要先获得监视器对象(Monitor), 而每个Java对象都有一个Monitor和它关联(详细内容可以查看3.2节)
+
+- monitorenter, 表示获取一个对象的监视器(monitor)
+- monitorexit, 表示释放监视器对象(monitor)的所有权, 让处于等待队列中的线程可以重新竞争监视器锁
+
+
+
+​		monitor依赖操作系统的MutexLock(互斥锁)来实现的, 线程被阻塞后会进入内核调用状态，这个操作会导致用户态和内核态相互切换, 而这个操作很影响性能。下面是重量级锁加锁流程
+
+![](./重量级锁加锁流程.jpg)
+
+​		任意线程对临界资源的访问, 首先要获取lock的监视器对象, 如果获取对象失败, 线程会进入同步队列, 线程状态变为(BLOCKED), 当持有监视器锁的线程释放了锁, 会唤醒同步队列中阻塞的线程,  重新尝试获取锁资源。
+
+​		
+
+**<font color="#bb2233">NOTE:  线程获取锁实际获取的是临界资源监视器(monitor)锁, Object中有wait() 、notify()、notifyAll()方法释放锁资源或通知其它线程重新竞争锁资源, 这些方法的调用必须子synchronized修改的同步范围内， 不然会抛下异常IllegalMonitorStateException, 意思是因为没有同步，线程对对象锁的状态是不确定的，不能调用这些方法 。</font>**
+
+```java
+//一、抛出异常
+public class SynchronizedThread extends Thread{
+    public static void main(String[] args) throws InterruptedException {
+        synchronized (SynchronizedThread.class) {
+        }
+        SynchronizedThread.class.wait();
+    }
+}
+
+//二、无异常, 正常执行
+public class SynchronizedThread extends Thread{
+    public static void main(String[] args) throws InterruptedException {
+        synchronized (SynchronizedThread.class) {
+          	SynchronizedThread.class.wait();
+        }   
+    }
+}
+```
+
+
+
+```java
+Exception in thread "main" java.lang.IllegalMonitorStateException
+	at java.lang.Object.wait(Native Method)
+	at java.lang.Object.wait(Object.java:502)
+	at com.ityongman.thread.SynchronizedThread.main(SynchronizedThread.java:13)
+```
+
+
+
+### 3.4 锁的优缺点对比
+
+| 锁       | 优点                                                         | 缺点                                           | 适用场景                           |
+| -------- | ------------------------------------------------------------ | ---------------------------------------------- | ---------------------------------- |
+| 偏向锁   | 加锁和解锁不需要额外的消耗，和执行非同步方法比仅存在纳秒级的差距 | 如果线程间存在锁竞争，会带来额外的锁撤销的消耗 | 适用于只有一个线程访问同步块场景   |
+| 轻量级锁 | 竞争的线程不会阻塞，提高了程序的响应速度                     | 如果始终得不到锁竞争的线程使用自旋会消耗CPU    | 追求响应时间，同步块执行速度非常快 |
+| 重量级锁 | 线程竞争不使用自旋，不会消耗CPU                              | 线程阻塞，响应时间缓慢                         | 追求吞吐量, 同步块执行速度较长     |
+
